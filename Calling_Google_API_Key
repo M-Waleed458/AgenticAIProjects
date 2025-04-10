@@ -1,0 +1,10 @@
+ # Calling Google-API key to communicate with LLM(Gemini)
+import google.generativeai as genai
+from google.colab import userdata
+
+google_api_key = userdata.get("GOOGLE_API_KEY")
+genai.configure(api_key=google_api_key)
+model = genai.GenerativeModel("gemini-1.5-flash")
+response = model.generate_content("what is the current population of Pakistan?")
+print(response.text)
+# response // to know information about how many numbers of token are using for both prompt and response
